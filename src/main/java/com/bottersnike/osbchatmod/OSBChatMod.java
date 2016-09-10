@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import com.bottersnike.osbchatmod.handler.ConfigurationHandler;
-
+import com.bottersnike.osbchatmod.tickHandler.TickHandler;
 import com.bottersnike.osbchatmod.reference.Reference;
 import com.bottersnike.osbchatmod.event.EventHandlerCommon;
 import com.bottersnike.osbchatmod.proxy.CommonProxy;
@@ -31,6 +31,7 @@ public class OSBChatMod {
 
 
         FMLCommonHandler.instance().bus().register(events);
+        FMLCommonHandler.instance().bus().register(new TickHandler());
         MinecraftForge.EVENT_BUS.register(events);
 
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
