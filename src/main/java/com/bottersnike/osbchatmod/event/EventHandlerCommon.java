@@ -4,6 +4,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+
 import com.bottersnike.osbchatmod.handler.ConfigurationHandler;
 
 import javax.script.*;
@@ -13,6 +15,15 @@ import java.util.regex.*;
 public class EventHandlerCommon {
 
     private Minecraft mc = Minecraft.getMinecraft();
+
+    @SubscribeEvent
+    public void onPlayerLoggedInEvent(PlayerEvent.PlayerLoggedInEvent event) {
+        System.out.println("OUTPUT!!!");
+
+        event.player.stepHeight += 16.0F;
+    }
+
+    /* OSB_CHAT_BOT CODE:
 
     //private Pattern extractMessage = Pattern.compile("[(.*?)] (.*)");
 
@@ -79,4 +90,6 @@ public class EventHandlerCommon {
             );
         }
     }
+
+    */
 }

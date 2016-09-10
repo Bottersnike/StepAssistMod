@@ -20,10 +20,7 @@ public class OSBChatMod {
     @SidedProxy(serverSide = "com.bottersnike.osbchatmod.proxy.CommonProxy", clientSide = "com.bottersnike.osbchatmod.proxy.ClientProxy")
     public static CommonProxy proxy;
 
-    /*  OSB_CHAT_BOT CODE:
-
     EventHandlerCommon events = new EventHandlerCommon();
-    */
 
     @Mod.Instance(Reference.MOD_ID)
     public static OSBChatMod instance;
@@ -32,11 +29,9 @@ public class OSBChatMod {
     public void preInit(FMLPreInitializationEvent event) {
         System.out.println(Reference.MOD_NAME + " is loading!");
 
-        /*  OSB_CHAT_BOT CODE:
 
         FMLCommonHandler.instance().bus().register(events);
         MinecraftForge.EVENT_BUS.register(events);
-        */
 
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         MinecraftForge.EVENT_BUS.register(new ConfigurationHandler());
