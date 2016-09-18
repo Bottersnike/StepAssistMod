@@ -1,9 +1,9 @@
 [
 {
-  "modid": "osbchatmod",
-  "name": "OSB Chat Mod",
-  "description": "OSB Chat Games Cheater",
-  "version": "0.0.1a",
+  "modid": "uphillstepassist",
+  "name": "Uphill Step Assist",
+  "description": "Adds uphill step assist. Make sure to turn OFF Auto-Jump in controls.",
+  "version": "0.0.1b",
   "mcversion": "1.10.2",
   "url": "",
   "updateUrl": "",

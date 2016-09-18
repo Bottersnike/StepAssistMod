@@ -1,4 +1,4 @@
-package com.bottersnike.osbchatmod.client.gui;
+package com.bottersnike.uphillstepassist.client.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;

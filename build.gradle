@@ -20,9 +20,9 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "0.0.1a"
-group= "com.bottersnike.osbchatmod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "osbchatmod"
+version = "0.0.1b"
+group= "com.bottersnike.uphillstepassist" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "uphillstepassist"
 
 minecraft {
     version = "1.10.2-12.18.1.2065"
