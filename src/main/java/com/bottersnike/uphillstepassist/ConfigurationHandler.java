@@ -1,11 +1,12 @@
-package com.bottersnike.uphillstepassist.handler;
+package com.bottersnike.uphillstepassist;
 
 import java.io.File;
 
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.MinecraftDummyContainer;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import com.bottersnike.uphillstepassist.reference.Reference;
 
 public class ConfigurationHandler {
 
@@ -27,11 +28,14 @@ public class ConfigurationHandler {
         if(event.getModID().equalsIgnoreCase(Reference.MOD_ID)) {
             loadConfiguration();
         }
+
+        Minecraft.getMinecraft().thePlayer.stepHeight = ConfigurationHandler.stepHeight;
+        UphillStepAssist.logger.info("Configs changed... Setting step height to " + ConfigurationHandler.stepHeight);
     }
 
     private static void loadConfiguration() {
 
-        stepHeight = configuration.getFloat("Step Height", Configuration.CATEGORY_GENERAL, 1.25F, 0.5F, 32.25F, "Number of block to step up");
+        stepHeight = configuration.getFloat("Step Height", Configuration.CATEGORY_GENERAL, 1.25F, 0.6F, 32.25F, "Number of block to step up");
 
         if(configuration.hasChanged()) {
             configuration.save();

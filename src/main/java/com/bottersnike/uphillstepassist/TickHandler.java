@@ -1,17 +1,15 @@
-package com.bottersnike.uphillstepassist.tickHandler;
+package com.bottersnike.uphillstepassist;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.entity.player.EntityPlayer;
-
-import com.bottersnike.uphillstepassist.handler.ConfigurationHandler;
 
 
 @SideOnly(Side.CLIENT)
-public class TickHandler
-{
+
+public class TickHandler {
     @SubscribeEvent
     public void onPlayerTick(TickEvent.PlayerTickEvent event)
     {
@@ -25,6 +23,9 @@ public class TickHandler
         if (player.stepHeight != height)
         {
             player.stepHeight = height;
+
+            UphillStepAssist.logger.info("Step height changed... Setting step height to " + ConfigurationHandler.stepHeight);
         }
     }
+
 }
