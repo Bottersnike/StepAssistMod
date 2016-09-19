@@ -11,7 +11,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ConfigurationHandler {
 
     public static Configuration configuration;
-    public static float stepHeight = 1.25F;
+    public static float   stepHeight = 1.25F;
+    public static boolean stepAssistEnabled = true;
 
 
     public static void init(File configFile) {
@@ -36,6 +37,7 @@ public class ConfigurationHandler {
     private static void loadConfiguration() {
 
         stepHeight = configuration.getFloat("Step Height", Configuration.CATEGORY_GENERAL, 1.25F, 0.6F, 32.25F, "Number of block to step up");
+        stepAssistEnabled = configuration.getBoolean("Uphill Step Assist Enabled", Configuration.CATEGORY_GENERAL, true, "Is uphill step assist enabled or not");
 
         if(configuration.hasChanged()) {
             configuration.save();

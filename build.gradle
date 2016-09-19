@@ -20,13 +20,19 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "0.0.1b"
+version = "0.0.4-1.10"
 group= "com.bottersnike.uphillstepassist" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "uphillstepassist"
 
 minecraft {
     version = "1.10.2-12.18.1.2065"
     runDir = "run"
+
+    replace "${version}", project.version
+    replaceIn "mcmod.info"
+
+    replace "@VERSION@", project.version
+    replaceIn "Reference.java"
     
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
