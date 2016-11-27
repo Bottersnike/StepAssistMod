@@ -12,13 +12,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class TickHandler {
     private boolean setLast = false;
     private float   lastHeight = 0.6F;
+    private float   lastChangeHeight = 0.6F;
 
     @SubscribeEvent
     public void onPlayerTick(TickEvent.PlayerTickEvent event)
     {
         EntityPlayer player = event.player;
 
-        if (ConfigurationHandler.stepAssistEnabled) {
+        if (ConfigurationHandler.stepAssistEnabled & lastChangeHeight != ConfigurationHandler.stepHeight) {
             if (player.stepHeight != ConfigurationHandler.stepHeight) {
                 lastHeight = player.stepHeight;
             }
@@ -33,6 +34,8 @@ public class TickHandler {
 
     public void setStepHeight(EntityPlayer player, Float height)
     {
+        lastChangeHeight = height;
+
         if (player.stepHeight != height)
         {
             player.stepHeight = height;
